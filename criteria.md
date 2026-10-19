@@ -76,7 +76,7 @@ than relying primarily on class frequency.
 **Why this target:**
 
 Accuracy alone could conceal weak performance on the less common
-`pull_results` and `technical_and_account_help` labels. Macro F1 gives all four
+`quest_and_exploration_help` and `technical_and_account_help` labels. Macro F1 gives all four
 labels equal weight, and 0.60 is demanding enough to require useful precision
 and recall without assuming that a dataset of roughly 200 posts will support
 near-perfect classification.

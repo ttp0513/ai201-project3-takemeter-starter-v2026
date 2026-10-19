@@ -7,5 +7,5 @@
 
 lore_discussion: A post whose main purpose is to discuss, question, or propose an interpretation of Genshin Impact's story, characters, factions, history, or worldbuilding.
 build_and_team_help: A post asking for or providing advice about character builds, artifacts, weapons, team compositions, rotations, account strength, or whether a character would improve an account or team.
-pull_results: A post whose main purpose is to report the outcome of completed wishes, including the character or weapon obtained, number of pulls, pity, or the result of a 50/50.
+quest_and_exploration_help: A post asking for practical instructions or assistance with quests, puzzles, bosses, domains, achievements, navigation, or exploration objectives in the game world.
 technical_and_account_help: A post asking for help with installation, launching, login, account access, cross-save, controllers, crashes, performance, graphics, network latency, or another device or service problem.

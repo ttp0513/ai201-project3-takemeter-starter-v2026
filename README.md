@@ -44,8 +44,8 @@
 
 TakeMeter is a text classifier designed to organize posts from the
 `r/Genshin_Impact` community according to their primary purpose. It distinguishes
-among lore discussion, build and team help, pull results, and technical or
-account-related help by analyzing each post's title and body. The project
+among lore discussion, build and team help, quest and exploration help, and
+technical or account-related help by analyzing each post's title and body. The project
 examines whether a small, manually reviewed dataset can support a reliable
 community-specific classifier, particularly when posts share vocabulary across
 categories. Its intended use is to describe patterns in community discussion,
@@ -87,17 +87,17 @@ a character would improve an account or team.
 **Example 2:**
 > What artifact should I use with my Furina?
 
-### `pull_results`
+### `quest_and_exploration_help`
 
-**Definition:** A post whose main purpose is to report the outcome of completed
-wishes, including the character or weapon obtained, number of pulls, pity, or
-the result of a 50/50.
+**Definition:** A post asking for practical instructions or assistance with
+quests, puzzles, bosses, domains, achievements, navigation, or exploration
+objectives in the game world.
 
 **Example 1:**
-> Got Skirk in 20 pulls.
+> How do I unlock this chest?
 
 **Example 2:**
-> Finally got her at 67 pity guaranteed.
+> How do I decrease the water level in this cave?
 
 ### `technical_and_account_help`
 
@@ -115,15 +115,16 @@ network latency, or another device or service problem.
 
 **Which two labels:**
 
-`build_and_team_help` and `pull_results`
+`lore_discussion` and `quest_and_exploration_help`
 
 **The decision rule I used every time:**
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
 
-If the author is deciding whether to obtain a character or weapon based on
-their account or team, I use `build_and_team_help`. If the wishes have already
-happened and the post mainly reports what was obtained, I use `pull_results`.
+If the requested answer would explain the meaning of the story, a character,
+or the world, I use `lore_discussion`. If the requested answer would provide
+actionable steps for completing an objective or reaching a location, I use
+`quest_and_exploration_help`, even when that objective is part of a story quest.
 
 
 
