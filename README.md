@@ -158,9 +158,9 @@ obvious.
 | Label | Count | Share |
 |---|---|---|
 | `lore_discussion` | 63 | 31.5% |
-| `build_and_team_help` | 61 | 30.5% |
-| `quest_and_exploration_help` | 41 | 20.5% |
-| `technical_and_account_help` | 35 | 17.5% |
+| `build_and_team_help` | 60 | 30.0% |
+| `quest_and_exploration_help` | 43 | 21.5% |
+| `technical_and_account_help` | 34 | 17.0% |
 | **Total** | **200** | **100%** |
 
 **Three hard cases**
@@ -200,10 +200,11 @@ obvious.
 > *Could have been:* `quest_and_exploration_help` or
 > `technical_and_account_help`.
 >
-> *I chose, because:* I chose `technical_and_account_help`. The quests are
-> already complete, so the user is not asking how to progress through them.
-> The reported problem is instead a mismatch between an expected unlock and
-> the account's resulting character roster.
+> *I chose, because:* I chose `quest_and_exploration_help`. The confusion is
+> tied directly to the outcome of three named story quests and whether those
+> quests grant their featured characters. Resolving the post requires
+> explaining the quests' reward rules, rather than troubleshooting account
+> access, synchronization, or a device-related failure.
 
 ---
 
