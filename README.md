@@ -42,6 +42,15 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
+TakeMeter is a text classifier designed to organize posts from the
+`r/Genshin_Impact` community according to their primary purpose. It distinguishes
+among lore discussion, build and team help, pull results, and technical or
+account-related help by analyzing each post's title and body. The project
+examines whether a small, manually reviewed dataset can support a reliable
+community-specific classifier, particularly when posts share vocabulary across
+categories. Its intended use is to describe patterns in community discussion,
+not to moderate content or evaluate individual users.
+
 
 
 ---
@@ -54,33 +63,67 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `lore_discussion`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** A post whose main purpose is to discuss, question, or propose
+an interpretation of Genshin Impact's story, characters, factions, history,
+or worldbuilding.
 
 **Example 1:**
->
+> The Traveler's Sibling is the "Goblet" to Asmoday.
 
 **Example 2:**
->
+> How different are the Tsaritsa and Abyss Order's goals?
+
+### `build_and_team_help`
+
+**Definition:** A post asking for or providing advice about character builds,
+artifacts, weapons, team compositions, rotations, account strength, or whether
+a character would improve an account or team.
+
+**Example 1:**
+> Can C6 Alyosha replace Odette in a Sandrone team?
+
+**Example 2:**
+> What artifact should I use with my Furina?
+
+### `pull_results`
+
+**Definition:** A post whose main purpose is to report the outcome of completed
+wishes, including the character or weapon obtained, number of pulls, pity, or
+the result of a 50/50.
+
+**Example 1:**
+> Got Skirk in 20 pulls.
+
+**Example 2:**
+> Finally got her at 67 pity guaranteed.
+
+### `technical_and_account_help`
+
+**Definition:** A post asking for help with installation, launching, login,
+account access, cross-save, controllers, crashes, performance, graphics,
+network latency, or another device or service problem.
+
+**Example 1:**
+> My phone keeps freezing when teleporting.
+
+**Example 2:**
+> Game is lagging for no apparent reason.
 
 ### The hardest boundary
 
 **Which two labels:**
 
+`build_and_team_help` and `pull_results`
+
 **The decision rule I used every time:**
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
+
+If the author is deciding whether to obtain a character or weapon based on
+their account or team, I use `build_and_team_help`. If the wishes have already
+happened and the post mainly reports what was obtained, I use `pull_results`.
 
 
 
