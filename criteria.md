@@ -51,7 +51,7 @@ whether you hit them:
 
 ---
 
-## 1.
+## 1. Overall accuracy is at least 0.65 for each of the three seeds.
 
 <!-- Your criterion. It must name a number. -->
 
@@ -59,11 +59,15 @@ whether you hit them:
 
 **Why this target:**
 
+This is a four-class problem, so uninformed guessing would average about 0.25
+accuracy on a balanced test set. A minimum of 0.65 would show that the model
+has learned distinctions that are useful for organizing community posts rather
+than relying primarily on class frequency.
 
 
 ---
 
-## 2.
+## 2. Macro F1 is at least 0.60 for each of the three seeds.
 
 <!-- Your criterion. -->
 
@@ -71,11 +75,16 @@ whether you hit them:
 
 **Why this target:**
 
+Accuracy alone could conceal weak performance on the less common
+`pull_results` and `technical_and_account_help` labels. Macro F1 gives all four
+labels equal weight, and 0.60 is demanding enough to require useful precision
+and recall without assuming that a dataset of roughly 200 posts will support
+near-perfect classification.
 
 
 ---
 
-## 3.
+## 3. Every label has an F1 score of at least 0.45 for each seed.
 
 <!-- Your criterion. -->
 
@@ -83,11 +92,16 @@ whether you hit them:
 
 **Why this target:**
 
+The final dataset is expected to contain approximately 40 to 50 examples per
+label, leaving only about six to eight examples from each label in a 15 percent
+test split. Per-label F1 will therefore be sensitive to a small number of
+errors, but a score below 0.45 would still indicate that the classifier has not
+learned that category reliably enough to be useful.
 
 
 ---
 
-## 4.
+## 4. Every label has at least 6 examples in the held-out test set for each seed.
 
 <!-- Your criterion. -->
 
@@ -95,11 +109,15 @@ whether you hit them:
 
 **Why this target:**
 
+This requirement checks whether the collected data remain sufficiently
+balanced after the stratified 70/15/15 split. With fewer than six test examples,
+one prediction would change a label's apparent performance too sharply for a
+stable interpretation across seeds.
 
 
 ---
 
-## 5.
+## 5. The most-confident third is at least 0.15 more accurate than the least-confident third for each seed.
 
 <!-- Your criterion. -->
 
@@ -107,6 +125,10 @@ whether you hit them:
 
 **Why this target:**
 
+TakeMeter should not only produce labels; its confidence should provide useful
+information about when a prediction deserves review. A gap of at least 0.15
+would show that higher confidence corresponds to meaningfully better accuracy,
+rather than functioning as an uninformative score.
 
 
 ---
