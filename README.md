@@ -281,28 +281,38 @@ interpreted as evidence of perfect generalization.
 
 **Moment 1**
 
-- *What I asked for:* I asked AI to combine several batches of Reddit posts,
-  detect duplicates, remove unrelated entries, and assign provisional labels
-  using my four-label taxonomy.
-- *What came back:* It produced a 200-post dataset with normalized duplicate
-  checks, provisional labels, and notes identifying rows that required human
-  review.
-- *What I changed:* I revised the original taxonomy by replacing the difficult
-  `pull_results` category with `quest_and_exploration_help`, kept pull and
-  roster questions under `build_and_team_help`, and reconsidered ambiguous
-  assignments rather than accepting every provisional label automatically.
+- *What I asked for:* I asked AI to audit my proposed taxonomy against
+  representative posts and identify category boundaries that were overlapping,
+  subjective, or unlikely to produce consistent annotations.
+- *What came back:* The analysis showed that `pull_results` was not a stable
+  intent category: many pull-related posts were actually requests for roster,
+  team, or account-value advice. It also found that quest and exploration
+  questions had more distinctive operational signals, such as named
+  objectives, locked areas, puzzles, navigation, and progression blockers.
+- *What I changed:* I made the final taxonomy decision to absorb pull-decision
+  questions into `build_and_team_help` and replace `pull_results` with
+  `quest_and_exploration_help`. I then wrote explicit definitions and a
+  decision rule separating story interpretation from requests for actionable
+  in-game instructions.
 
 **Moment 2**
 
-- *What I asked for:* I asked AI to identify posts that crossed category
-  boundaries and explain which two labels were plausible for each one.
-- *What came back:* It highlighted cases involving account restarts, reactions
-  to story quests, and expected character rewards after completing quests.
-- *What I changed:* I used the written decision rules to make the final choice.
-  In particular, the character-reward question is recorded as
-  `quest_and_exploration_help` because resolving it requires explaining what
-  those named quests award, not troubleshooting login, synchronization, or a
-  device failure.
+- *What I asked for:* After the initial training run, I asked AI to evaluate the
+  split distribution, validation trajectory, per-label F1 scores, confidence
+  results, and confusion counts, then recommend technically defensible ways to
+  address the observed failure pattern without changing the held-out test set.
+- *What came back:* The evaluation identified a strong bias toward
+  `build_and_team_help`: every technical/account example and five of six
+  quest/exploration examples were predicted as that class. It also noted that
+  validation performance was still improving at the third epoch and proposed
+  additional training, class-weighted loss, and a longer token limit as
+  candidate interventions.
+- *What I changed:* I preserved the original metrics as the before result and
+  kept seed 42 and the exact data partitions fixed. I implemented an
+  exploratory rerun with five epochs, inverse-frequency weights calculated
+  only from the training split, and a 256-token limit. I reported the improved
+  metrics separately and documented that changing three variables together
+  prevents a causal claim about which intervention produced the gain.
 
 **Pre-labelling disclosure:**
 
