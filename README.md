@@ -212,15 +212,59 @@ obvious.
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Original settings:** <!-- epochs, learning rate, batch size, seed -->
+
+- Epochs: 3
+- Learning rate: `2e-5`
+- Batch size: 16
+- Maximum sequence length: 128 tokens
+- Random seed: 42
+- Hardware: CPU (`torch 2.14.1+cpu`)
 
 **Anything I changed from the defaults, and why:**
+
+I retained the notebook's default training settings for the first run. This
+provides a reproducible reference point before any model or hyperparameter
+changes and avoids tuning against a single 30-post test split.
 
 **Split sizes:** <!-- train / val / test, and per-label counts in the test
 split. If a label had fewer than about 8 in test, say so — it explains a lot
 of next unit's variance. -->
+
+The stratified split produced 139 training posts, 31 validation posts, and 30
+test posts. The held-out test set contains 10 `lore_discussion`, 9
+`build_and_team_help`, 6 `quest_and_exploration_help`, and 5
+`technical_and_account_help` posts. The last two labels therefore have thin
+test support: one prediction changes their recall or accuracy contribution by
+approximately 17 or 20 percentage points, respectively. Their per-label scores
+should be interpreted cautiously in the next unit.
+
+**Combined improvement run:**
+
+I preserved the original run in `results.json` and saved the exploratory rerun
+in `results_improved.json`. The rerun kept DistilBERT, seed 42, the learning
+rate, batch size, and the exact train, validation, and test partitions
+unchanged. It increased training from three to five epochs, raised the maximum
+sequence length from 128 to 256 tokens, and applied inverse-frequency class
+weights calculated from the training split. The validation and test examples
+were not reweighted or resampled.
+
+| Measure | Original | Combined improvement | Change |
+|---|---:|---:|---:|
+| Accuracy | 0.467 | 0.833 | +0.367 |
+| Macro F1 | 0.347 | 0.853 | +0.506 |
+| `lore_discussion` F1 | 0.571 | 0.800 | +0.229 |
+| `build_and_team_help` F1 | 0.529 | 0.778 | +0.248 |
+| `quest_and_exploration_help` F1 | 0.286 | 0.833 | +0.548 |
+| `technical_and_account_help` F1 | 0.000 | 1.000 | +1.000 |
+
+The combined run is promising, but it is not a controlled one-change
+experiment because three training decisions changed together. The result does
+not establish which change produced the improvement. In addition, the perfect
+technical/account F1 is based on only five test posts, so it should not be
+interpreted as evidence of perfect generalization.
 
 
 
@@ -237,17 +281,38 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked AI to combine several batches of Reddit posts,
+  detect duplicates, remove unrelated entries, and assign provisional labels
+  using my four-label taxonomy.
+- *What came back:* It produced a 200-post dataset with normalized duplicate
+  checks, provisional labels, and notes identifying rows that required human
+  review.
+- *What I changed:* I revised the original taxonomy by replacing the difficult
+  `pull_results` category with `quest_and_exploration_help`, kept pull and
+  roster questions under `build_and_team_help`, and reconsidered ambiguous
+  assignments rather than accepting every provisional label automatically.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked AI to identify posts that crossed category
+  boundaries and explain which two labels were plausible for each one.
+- *What came back:* It highlighted cases involving account restarts, reactions
+  to story quests, and expected character rewards after completing quests.
+- *What I changed:* I used the written decision rules to make the final choice.
+  In particular, the character-reward question is recorded as
+  `quest_and_exploration_help` because resolving it requires explaining what
+  those named quests award, not troubleshooting login, synchronization, or a
+  device failure.
 
 **Pre-labelling disclosure:**
+
+AI supplied provisional labels for 180 posts after I labeled the first 20
+without AI assistance. The AI-assisted rows remain explicitly marked
+`AI pre-labelled; pending human review` in `labels.csv`. The Milestone 5 run
+used the dataset in that documented state, so its metrics are a preliminary
+reference rather than evidence that the labeling review is complete. I will
+read and correct every provisional row before treating a later run as the
+final model evaluation.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 

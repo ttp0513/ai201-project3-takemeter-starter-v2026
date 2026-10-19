@@ -1,0 +1,69 @@
+{
+  "seed": 42,
+  "n_test": 30,
+  "accuracy": 0.4666666666666667,
+  "f1_macro": 0.34663865546218486,
+  "per_label": {
+    "lore_discussion": {
+      "precision": 1.0,
+      "recall": 0.4,
+      "f1": 0.5714285714285714,
+      "support": 10
+    },
+    "build_and_team_help": {
+      "precision": 0.36,
+      "recall": 1.0,
+      "f1": 0.5294117647058824,
+      "support": 9
+    },
+    "quest_and_exploration_help": {
+      "precision": 1.0,
+      "recall": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "support": 6
+    },
+    "technical_and_account_help": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 5
+    }
+  },
+  "confusion": {
+    "lore_discussion": {
+      "lore_discussion": 4,
+      "build_and_team_help": 6,
+      "quest_and_exploration_help": 0,
+      "technical_and_account_help": 0
+    },
+    "build_and_team_help": {
+      "lore_discussion": 0,
+      "build_and_team_help": 9,
+      "quest_and_exploration_help": 0,
+      "technical_and_account_help": 0
+    },
+    "quest_and_exploration_help": {
+      "lore_discussion": 0,
+      "build_and_team_help": 5,
+      "quest_and_exploration_help": 1,
+      "technical_and_account_help": 0
+    },
+    "technical_and_account_help": {
+      "lore_discussion": 0,
+      "build_and_team_help": 5,
+      "quest_and_exploration_help": 0,
+      "technical_and_account_help": 0
+    }
+  },
+  "confidence": {
+    "mean_when_right": 0.32640835642814636,
+    "mean_when_wrong": 0.29614803194999695,
+    "accuracy_most_confident_third": 0.9,
+    "accuracy_least_confident_third": 0.2,
+    "n_per_third": 10
+  },
+  "device": "cpu",
+  "device_name": "CPU",
+  "torch_version": "2.14.1+cpu",
+  "max_length": 128
+}
