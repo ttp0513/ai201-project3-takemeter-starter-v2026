@@ -137,17 +137,31 @@ actionable steps for completing an objective or reaching a location, I use
 
 **Where the posts came from:**
 
+The dataset contains 200 English-language posts from Reddit's
+`r/Genshin_Impact` community. The posts were collected in several
+browser-automation batches, combined into one file, and checked for duplicate
+text before labeling.
+
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
+
+I labeled the first 20 posts without AI assistance to establish a cold-labeling
+baseline. AI then supplied provisional labels for the remaining posts. Those
+rows are explicitly marked `AI pre-labelled; pending human review` in the
+dataset, and I will read and correct every provisional label before training.
+When a post plausibly crossed a category boundary, I recorded the competing
+labels and the decision rule in its note rather than treating the choice as
+obvious.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `lore_discussion` | 63 | 31.5% |
+| `build_and_team_help` | 61 | 30.5% |
+| `quest_and_exploration_help` | 41 | 20.5% |
+| `technical_and_account_help` | 35 | 17.5% |
+| **Total** | **200** | **100%** |
 
 **Three hard cases**
 
@@ -155,25 +169,41 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post:* A player considered restarting an Adventure Rank 33 account
+> because of poor banner luck and a weak roster.
 >
-> *Could have been:*
+> *Could have been:* `build_and_team_help` or
+> `technical_and_account_help`.
 >
-> *I chose, because:*
+> *I chose, because:* I chose `build_and_team_help`. Although restarting is an
+> account-level decision, the underlying question is whether the player's
+> current characters and pull results make the account viable. It does not
+> concern login access, cross-save, installation, or another technical service
+> problem.
 
 **2.**
-> *The post:*
+> *The post:* A player praised a Sumeru Archon Quest for its character
+> development, treatment of Dottore, and conclusion, then asked what other
+> players thought.
 >
-> *Could have been:*
+> *Could have been:* `lore_discussion` or
+> `quest_and_exploration_help`.
 >
-> *I chose, because:*
+> *I chose, because:* I chose `lore_discussion`. The post names a quest, but it
+> evaluates the story and its characters rather than requesting instructions
+> for completing an objective.
 
 **3.**
-> *The post:*
+> *The post:* A player completed the story quests for Razor, Diluc, and
+> Xiangling but expected those characters to appear in the account roster.
 >
-> *Could have been:*
+> *Could have been:* `quest_and_exploration_help` or
+> `technical_and_account_help`.
 >
-> *I chose, because:*
+> *I chose, because:* I chose `technical_and_account_help`. The quests are
+> already complete, so the user is not asking how to progress through them.
+> The reported problem is instead a mismatch between an expected unlock and
+> the account's resulting character roster.
 
 ---
 
