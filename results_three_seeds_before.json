@@ -1,0 +1,221 @@
+[
+  {
+    "seed": 42,
+    "n_test": 30,
+    "accuracy": 0.8333333333333334,
+    "f1_macro": 0.8527777777777779,
+    "per_label": {
+      "lore_discussion": {
+        "precision": 0.8,
+        "recall": 0.8,
+        "f1": 0.8,
+        "support": 10
+      },
+      "build_and_team_help": {
+        "precision": 0.7777777777777778,
+        "recall": 0.7777777777777778,
+        "f1": 0.7777777777777778,
+        "support": 9
+      },
+      "quest_and_exploration_help": {
+        "precision": 0.8333333333333334,
+        "recall": 0.8333333333333334,
+        "f1": 0.8333333333333334,
+        "support": 6
+      },
+      "technical_and_account_help": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 5
+      }
+    },
+    "confusion": {
+      "lore_discussion": {
+        "lore_discussion": 8,
+        "build_and_team_help": 2,
+        "quest_and_exploration_help": 0,
+        "technical_and_account_help": 0
+      },
+      "build_and_team_help": {
+        "lore_discussion": 1,
+        "build_and_team_help": 7,
+        "quest_and_exploration_help": 1,
+        "technical_and_account_help": 0
+      },
+      "quest_and_exploration_help": {
+        "lore_discussion": 1,
+        "build_and_team_help": 0,
+        "quest_and_exploration_help": 5,
+        "technical_and_account_help": 0
+      },
+      "technical_and_account_help": {
+        "lore_discussion": 0,
+        "build_and_team_help": 0,
+        "quest_and_exploration_help": 0,
+        "technical_and_account_help": 5
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.36131739616394043,
+      "mean_when_wrong": 0.2930770516395569,
+      "accuracy_most_confident_third": 1.0,
+      "accuracy_least_confident_third": 0.5,
+      "n_per_third": 10
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 256,
+    "epochs": 5,
+    "learning_rate": 2e-05,
+    "batch_size": 16,
+    "class_weighted_loss": true
+  },
+  {
+    "seed": 7,
+    "n_test": 30,
+    "accuracy": 0.7,
+    "f1_macro": 0.7026515151515151,
+    "per_label": {
+      "lore_discussion": {
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75,
+        "support": 9
+      },
+      "build_and_team_help": {
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "f1": 0.6666666666666666,
+        "support": 9
+      },
+      "quest_and_exploration_help": {
+        "precision": 0.625,
+        "recall": 0.7142857142857143,
+        "f1": 0.6666666666666666,
+        "support": 7
+      },
+      "technical_and_account_help": {
+        "precision": 0.6666666666666666,
+        "recall": 0.8,
+        "f1": 0.7272727272727273,
+        "support": 5
+      }
+    },
+    "confusion": {
+      "lore_discussion": {
+        "lore_discussion": 6,
+        "build_and_team_help": 1,
+        "quest_and_exploration_help": 2,
+        "technical_and_account_help": 0
+      },
+      "build_and_team_help": {
+        "lore_discussion": 1,
+        "build_and_team_help": 6,
+        "quest_and_exploration_help": 1,
+        "technical_and_account_help": 1
+      },
+      "quest_and_exploration_help": {
+        "lore_discussion": 0,
+        "build_and_team_help": 1,
+        "quest_and_exploration_help": 5,
+        "technical_and_account_help": 1
+      },
+      "technical_and_account_help": {
+        "lore_discussion": 0,
+        "build_and_team_help": 1,
+        "quest_and_exploration_help": 0,
+        "technical_and_account_help": 4
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.3771698474884033,
+      "mean_when_wrong": 0.3266570270061493,
+      "accuracy_most_confident_third": 1.0,
+      "accuracy_least_confident_third": 0.4,
+      "n_per_third": 10
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 256,
+    "epochs": 5,
+    "learning_rate": 2e-05,
+    "batch_size": 16,
+    "class_weighted_loss": true
+  },
+  {
+    "seed": 2024,
+    "n_test": 30,
+    "accuracy": 0.7666666666666667,
+    "f1_macro": 0.7892156862745098,
+    "per_label": {
+      "lore_discussion": {
+        "precision": 1.0,
+        "recall": 0.7,
+        "f1": 0.8235294117647058,
+        "support": 10
+      },
+      "build_and_team_help": {
+        "precision": 0.8333333333333334,
+        "recall": 0.5555555555555556,
+        "f1": 0.6666666666666666,
+        "support": 9
+      },
+      "quest_and_exploration_help": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666,
+        "support": 6
+      },
+      "technical_and_account_help": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 5
+      }
+    },
+    "confusion": {
+      "lore_discussion": {
+        "lore_discussion": 7,
+        "build_and_team_help": 1,
+        "quest_and_exploration_help": 2,
+        "technical_and_account_help": 0
+      },
+      "build_and_team_help": {
+        "lore_discussion": 0,
+        "build_and_team_help": 5,
+        "quest_and_exploration_help": 4,
+        "technical_and_account_help": 0
+      },
+      "quest_and_exploration_help": {
+        "lore_discussion": 0,
+        "build_and_team_help": 0,
+        "quest_and_exploration_help": 6,
+        "technical_and_account_help": 0
+      },
+      "technical_and_account_help": {
+        "lore_discussion": 0,
+        "build_and_team_help": 0,
+        "quest_and_exploration_help": 0,
+        "technical_and_account_help": 5
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.3569925129413605,
+      "mean_when_wrong": 0.3105317950248718,
+      "accuracy_most_confident_third": 0.9,
+      "accuracy_least_confident_third": 0.6,
+      "n_per_third": 10
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 256,
+    "epochs": 5,
+    "learning_rate": 2e-05,
+    "batch_size": 16,
+    "class_weighted_loss": true
+  }
+]

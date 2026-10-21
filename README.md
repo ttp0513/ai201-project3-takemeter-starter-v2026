@@ -243,8 +243,8 @@ should be interpreted cautiously in the next unit.
 
 **Combined improvement run:**
 
-I preserved the original run in `results.json` and saved the exploratory rerun
-in `results_improved.json`. The rerun kept DistilBERT, seed 42, the learning
+I preserved the original run in `results_origin.json` and saved the exploratory rerun
+in `result.json`. The rerun kept DistilBERT, seed 42, the learning
 rate, batch size, and the exact train, validation, and test partitions
 unchanged. It increased training from three to five epochs, raised the maximum
 sequence length from 128 to 256 tokens, and applied inverse-frequency class
@@ -338,19 +338,25 @@ final model evaluation.
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.700 | 0.833 | +0.133 |
+| Macro F1 | 0.703 | 0.853 | +0.150 |
+| F1 — `build_and_team_help` | 0.750 | 0.778 | +0.028 |
+| F1 — `lore_discussion` | 0.667 | 0.800 | +0.133 |
+| F1 — `quest_and_exploration_help` | 0.667 | 0.833 | +0.167 |
+| F1 — `technical_and_account_help` | 0.727 | 1.000 | +0.273 |
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+Before viewing the baseline comparison, I predicted that my trained model would
+outperform the baseline because its Unit 5 evaluation scores were relatively
+high. I expected the trained model to outperform the baseline because it had learned directly from posts labeled with my four categories, while the baseline relied only on the written label definitions.
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
-
+The trained model improved overall accuracy from 0.700 to 0.833 and macro F1
+from 0.703 to 0.853 on the same 30 held-out posts. The trained model performed better than the baseline, which suggests that training on my labeled posts helped it learn the differences between my four categories. However, this comparison used only 30 test posts. I will use the three-seed evaluation to check whether the improvement remains consistent across different test splits.
 
 
 ---
