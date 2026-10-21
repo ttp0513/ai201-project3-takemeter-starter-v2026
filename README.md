@@ -368,29 +368,35 @@ from 0.703 to 0.853 on the same 30 held-out posts. The trained model performed b
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | At least 0.65 for every seed | 0.833 | 0.700 | 0.767 | MET |
+| 2. Macro F1 | At least 0.60 for every seed | 0.853 | 0.703 | 0.789 | MET |
+| 3. Lowest per-label F1 | Every label at least 0.45 for every seed | 0.778 | 0.667 | 0.667 | MET |
+| 4. Smallest per-label test support | Every label at least 6 examples for every seed | 5 | 5 | 5 | MISSED |
+| 5. Confidence accuracy gap | Most-confident third at least 0.15 above least-confident third | 0.500 | 0.600 | 0.300 | MET |
+
+**Stability note:** Overall accuracy ranged from 0.700 to 0.833, a spread of
+0.133. Because this is more than 10 percentage points, the evaluation is not
+fully stable across test splits; the small or uneven dataset is a likely cause.
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| true \ predicted | lore_discussion | build_and_team_help | quest_and_exploration_help | technical_and_account_help |
+|---|---|---|---|---|
+| **lore_discussion** | 8 | 2 | 0 | 0 |
+| **build_and_team_help** | 1 | 7 | 1 | 0 |
+| **quest_and_exploration_help** | 1 | 0 | 5 | 0 |
+| **technical_and_account_help** | 0 | 0 | 0 | 5 |
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
-
-
+Biggest confusion: 2 real `lore_discussion` posts called `build_and_team_help`.
+The other direction: 1 real `build_and_team_help` posts called `lore_discussion`.
+This suggests that the model sometimes interprets lore-oriented discussion as a request for build or team advice, so the boundary between these two labels was its largest source of confusion.
 
 ---
 
